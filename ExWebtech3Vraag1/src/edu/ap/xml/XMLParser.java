@@ -88,7 +88,7 @@ private String INPUTFILE = "/Users/J.Mollemans/Desktop/registraties.xml";
 	/** Get all runners for the race with reg_id and return them
 	 * in valid html format
 	 */
-	public String getRunners(String reg_id) {
+	public String getRunners(String reg_id) { //= patients
 		File inputFile = new File(INPUTFILE);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
@@ -97,7 +97,7 @@ private String INPUTFILE = "/Users/J.Mollemans/Desktop/registraties.xml";
 			dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(inputFile);
 	        doc.getDocumentElement().normalize();
-	        String result = "<h2>Runners</h2>";
+	        String result = "<h2>Patients</h2>";
 	        
 	        NodeList races = doc.getElementsByTagName("race");
 
@@ -113,7 +113,7 @@ private String INPUTFILE = "/Users/J.Mollemans/Desktop/registraties.xml";
 	        			 Element eElement2 = (Element)runner;
 	        			 result += "<br/><b>First Name : </b>" + eElement2.getAttribute("first_name");
 		        		 result += "<br/><b>Last Name : </b>" + eElement2.getAttribute("last_name");
-		        		 result += "<br/><b>Age : </b>" + eElement2.getAttribute("age");
+		        		 result += "<br/><b>Birth date: </b>" + eElement2.getAttribute("age");
 	        		 }
 	        	 }
 	        }
